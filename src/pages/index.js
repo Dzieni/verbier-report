@@ -4,20 +4,14 @@ import {ContentBox, PageFrame} from "../component";
 import Box from "../component/box";
 import img from "../images/circle.png";
 import styled from "styled-components";
-import Button from "../component/button";
+import {GreyButton} from "../component/buttons";
 
-const NavButton = styled(Button)`
+const NavButton = styled(GreyButton)`
   width: 10rem;
   height: 2rem;
-
-  transition: 0.5s;
-  background-color: #676e7a;
-  :hover {
-    background-color: #6e6e6e;
-  }
 `;
 
-export const Buttons = ({label}) => {
+export const Buttons = () => {
   return (
     <Box gap>
       <NavButton type="button" onClick={() => navigate("/ecosysteme")}>
@@ -31,12 +25,16 @@ export const Buttons = ({label}) => {
 };
 
 const Image = styled(Box)`
-  height: 25rem;
+  height: 30rem;
 
   background-image: url(${img});
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-size: contain;
+
+  @media only screen and (max-width: 768px) {
+    height: 20rem;
+  }
 `;
 
 const Body = ({data}) => {
@@ -44,7 +42,7 @@ const Body = ({data}) => {
     <Box padding="2rem 0">
       <ContentBox top column gap="3rem">
         <Box column gap>
-          <h1 className="title bold darkGrey">
+          <h1 style={{textAlign: "center"}} className="title bold darkGrey">
             Projet de développement économique
           </h1>
           <h2 className="title darkGrey">Commune de Val de Bagnes</h2>

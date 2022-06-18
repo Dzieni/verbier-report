@@ -25,7 +25,7 @@ const CatWrap = styled(Box)``;
 
 const Category = ({label}) => {
   return (
-    <CatWrap left padding="0.5rem 0">
+    <CatWrap left padding="1rem 0 0">
       <h2 className="title darkGrey">{label.toUpperCase()}</h2>
     </CatWrap>
   );
@@ -39,7 +39,7 @@ const List = ({items, cats}) => {
         if (!catItems.length) return null;
 
         return (
-          <Box column padding="1rem" gap>
+          <Box column gap>
             <Category {...{label: c}} />
             {catItems.map((i) => (
               <Card {...i} />

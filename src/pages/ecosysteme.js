@@ -8,7 +8,7 @@ import img from "../images/headerBg.png";
 import SideBar from "../component/sidebar";
 import {ALL} from "../component/constants";
 import List from "../component/list";
-import Button from "../component/button";
+import {GoBackButton, BlueButton} from "../component/buttons";
 
 const Body = ({data}) => {
   const items = data.allMarkdownRemark.nodes.map((n) => ({
@@ -42,14 +42,8 @@ const Body = ({data}) => {
   );
 };
 
-const FiltersButton = styled(Button)`
+const FiltersButton = styled(BlueButton)`
   padding: "0.5rem 1.5rem";
-
-  transition: 0.5s;
-  background-color: #676e7a;
-  :hover {
-    background-color: #6e6e6e;
-  }
 `;
 
 const HeaderWrap = styled(Box)`
@@ -70,16 +64,19 @@ const Header = () => {
     <HeaderWrap>
       <ContentBoxWrap column left gap="1rem">
         <Box column left gap="0.2rem">
-          <h5 className=" white">Commune de val de bagnes</h5>
+          <h5 className=" white">Commune de val de Bagnes</h5>
           <h1 className="title bold white">
             Projet de développement économique - Ecosystème Économique
           </h1>
         </Box>
-        <ShowIfMobile left>
-          <FiltersButton>
-            <h3 className="title white">Defis et filtres</h3>
-          </FiltersButton>
-        </ShowIfMobile>
+        <Box gap left top inline>
+          <GoBackButton />
+          <ShowIfMobile left>
+            <FiltersButton>
+              <h3 className="title white">Defis et filtres</h3>
+            </FiltersButton>
+          </ShowIfMobile>
+        </Box>
       </ContentBoxWrap>
     </HeaderWrap>
   );
