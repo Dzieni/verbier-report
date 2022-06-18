@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/verbier-report",
   siteMetadata: {
     title: `verbier-report`,
     siteUrl: `https://www.yourdomain.tld`,
